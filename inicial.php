@@ -1,13 +1,8 @@
-<?php
-
-include_once "header.php";
-?>
-<Div class='container'>
+<?php include_once "header.php"; ?>
+<div class='container'>
     <h1>
         Noticias:
     </h1>
 
-</Div>
-</body>
-
-</html>
+</div>
+<?php include_once "footer.php"; ?>

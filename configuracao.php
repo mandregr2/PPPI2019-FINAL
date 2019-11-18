@@ -339,6 +339,4 @@ if (!isset($_POST['usuario'])) {
 </div>
 <!-- CADASTRO ACESSOS -->
 <!-- CONTEUDO -->
-</body>
-
-</html>
+<?php include_once "footer.php"; ?>

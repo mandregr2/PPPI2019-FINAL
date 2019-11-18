@@ -5,7 +5,7 @@ if (!isset($_SESSION)) { //Verificar se a sessssão não está aberta aberta.
     session_cache_limiter('private');
     $cache_limiter = session_cache_limiter();
  /* define o prazo do cache em 10 minutos */
-    session_cache_expire(10);
+    session_cache_expire(50);
     $cache_expire = session_cache_expire();
     /* inicia a sess�o */
     $_SESSION['cache_limiter'] = time();

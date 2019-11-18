@@ -15,7 +15,6 @@ if (($arquivo = fopen("config.csv", "r")) !== false) {
         ];
     };
     foreach ($config as $c) {
-
         $_SESSION['ip'] = $c['ip'];
     };
 } else {
@@ -100,7 +99,7 @@ if (($arquivo = fopen("config.csv", "r")) !== false) {
 </head>
 
 
-<body align="center">
+<body>
     <div class='container2'>
         <?php echo "<form class='container2' name='form' action='http://" . $_SESSION['ip'] . "/StartSession.php' method='POST' name='incluir'>"; ?>
 
