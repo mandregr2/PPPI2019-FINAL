@@ -49,17 +49,43 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
+    <!-- menu superior -->
+    <header class="header">
+        <div class="toggleTrigger" onClick="toggleMenu()"><i class="fa fa-bars fa-2x"></i></div>
+    </header>
+
     <!-- MENU LATERAL -->
     <div class="container-fluid">
         <div class="sidemenu">
-            <div id="menu">
-                <a href='../index.php' class='btn'><img src="https://img.icons8.com/office/40/000000/shutdown.png"></a>
-                <h3 class="link-titulo">Menu</h3>
+            <div class="sidemenu__header">
+                <img class="sidemenu__logo" src="/assets/img/logo.png" alt="Logo IFRS">
+            </div>
+            <div class="sidemenu__body">
+                <div class="sidemenu__section">
+                    <span class="section__title">
+                        Geral
+                    </span>
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="/inicial.php"><i class="fa fa-home"></i> Início</a>
+                        <a class="nav-link active" href="/quadro.php"><i class="fa fa-home"></i> Quadro</a>
+                    </nav>
+                </div>
+                <div class="sidemenu__section">
+                    <span class="section__title">
+                        Ajustes
+                    </span>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="/configuracao.php"><i class="fa fa-wrench"></i> Configurações</a>
+                        <a class="nav-link" href="/index.php"><i class="fa fa-sign-out"></i> Sair</a>
+                    </nav>
+                </div>
+            </div>
+                
                 <?php
 
                 //modulos
