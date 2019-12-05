@@ -7,13 +7,33 @@ for ($i = 1; $i <= 75; $i++) {
 
     $celulas[$i] = [
         'id' => $i
-    ];    
-
-    $disciplinas[$i] = [
-        'id'  => 75 + $i,
-        'nome' => "disciplina".$i
     ];
 }
+
+//Mario implementou daqui
+if (($arquivo = fopen("diciplinas.csv", "r")) !== false) {
+    $disciplinas = [];
+    $linha = fgetcsv($arquivo, 500, ',');
+    while (($linha = fgetcsv($arquivo, 500, ',')) !== false) {
+        $disciplinas[] = [
+            'id' => 75 + $linha[0],
+            'curso' => $linha[1],
+            'nome' => $linha[2],
+            'professor' => $linha[3],
+        ];
+    }
+} else {
+    die("arquivo de configuracao não existe");
+};
+//até aqui
+
+
+//comentei o codigo
+
+//$disciplinas[$i] = [
+//    'id'  => 75 + $i,
+//    'nome' => "disciplina" . $i
+//];
 
 
 
@@ -27,12 +47,12 @@ for ($i = 1; $i <= 75; $i++) {
             Disciplinas do curso
             <div class="container">
                 <div class="lista-disciplinas">
-                <?php 
-                foreach ($disciplinas as $key => $value) { ?>
-                    <div class="disciplina" id="<?php echo $value['id'];?>">
-                        <?php echo $value['nome'];?>
-                    </div>
-                <?php } ?>
+                    <?php
+                    foreach ($disciplinas as $key => $value) { ?>
+                        <div class="disciplina" id="<?php echo $value['id']; ?>">
+                            <?php echo $value['nome']; ?>
+                        </div>
+                    <?php } ?>
                 </div>
 
             </div>
@@ -95,7 +115,7 @@ for ($i = 1; $i <= 75; $i++) {
                     </div>
                     <div class="celula">
                         <p>&nbsp;</p>
-                    </div>  
+                    </div>
                     <div class="celula">
                         <p>17:55 - 18:45</p>
                     </div>
@@ -114,19 +134,19 @@ for ($i = 1; $i <= 75; $i++) {
                 </div>
                 <div class="grade">
                     <?php
-                        foreach ($celulas as $key => $value) {
-                            if ($key == 26 || $key == 51) {
-                                for ($c = 0; $c < 5; $c++) { ?>
-                                    <div class="celula">
+                    foreach ($celulas as $key => $value) {
+                        if ($key == 26 || $key == 51) {
+                            for ($c = 0; $c < 5; $c++) { ?>
+                                <div class="celula">
                                     <p>TO VAZIA </p>
-                                    </div>
-                                <?php }
+                                </div>
+                        <?php }
                             }
-                    ?>
-                    <div class="celula" id="<?php echo $value['id'] != null ? $value['id'] : ''?>">
-                        <!-- <p><?php echo $key;?></p> -->
-                    </div>
-                        <?php } ?>
+                            ?>
+                        <div class="celula" id="<?php echo $value['id'] != null ? $value['id'] : '' ?>">
+                            <!-- <p><?php echo $key; ?></p> -->
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
