@@ -34,20 +34,8 @@ $usuarios[] = [
 
 
 if (($arquivo = fopen("usuario.csv", "w")) !== false) {
-    if ($file['error'] !== 0) {
-        switch ($file['error']) {
-            case 1:
-                $msg = "arquivo maior que o permitido.";
-                break;
-            case 3:
-                $msg = "erro eo enviar arquivo. ";
-                break;
-            case 4:
-                $msg = "nenhum arquivo selecionado. ";
-                break;
-        }
-    } else { };
-    $top = [nickname,psword];
+  
+    $top = ['nickname','psword'];
     fputcsv($arquivo, $top);
 
    foreach($usuarios as $usuario){
@@ -57,7 +45,6 @@ if (($arquivo = fopen("usuario.csv", "w")) !== false) {
     };
 };
 fclose($arquivo);
-
 // var_dump($linhas);
 
 //<!-- DELETA DO BANCO -->

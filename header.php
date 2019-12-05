@@ -44,7 +44,7 @@ and open the template in the editor.
 <html>
 
 <head>
-    <title>CLIENTE</title>
+    <title>IFRS</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
@@ -67,20 +67,7 @@ and open the template in the editor.
             </div>
             <div class="sidemenu__body">
                 <div class="sidemenu__section">
-                    <span class="section__title">
-                        Geral
-                    </span>
                     <nav class="nav flex-column">
-                        <a class="nav-link active" href="/inicial.php"><i class="fa fa-home"></i> Início</a>
-                        <a class="nav-link active" href="/quadro.php"><i class="fa fa-home"></i> Quadro</a>
-                    </nav>
-                </div>
-                <div class="sidemenu__section">
-                    <span class="section__title">
-                        Ajustes
-                    </span>
-                    <nav class="nav flex-column">
-                        <a class="nav-link" href="/configuracao.php"><i class="fa fa-wrench"></i> Configurações</a>
                         <a class="nav-link" href="/index.php"><i class="fa fa-sign-out"></i> Sair</a>
                     </nav>
                 </div>
@@ -111,6 +98,7 @@ and open the template in the editor.
                             'id_modulo' => $linha['1'],
                             'descricao_acesso' => $linha['2'],
                             'link' => $linha['3'],
+                            'icones' => $linha['4'],
                         ];
                     };
                 } else {
@@ -133,17 +121,28 @@ and open the template in the editor.
                 $anterior_modulo = 0;
                 foreach ($modulos as $modulo) {
                     if ($anterior_modulo !== $modulo['descricao_modulos']) {
-                        echo "<div><h3 class='link-titulo'>{$modulo['descricao_modulos']}</h3><ul>";
+                        echo "<div class='sidemenu__body'>";
+                        echo "<div class='sidemenu__section'>";
+                            echo "<span class='section__title'>";
+                             echo   $modulo['descricao_modulos'];
+                            echo "</span>";
+                    
+                       // echo "<div><h3 class='link-titulo'>{$modulo['descricao_modulos']}</h3><ul>";
                         foreach ($acessos as $acesso) {
                             if ($modulo['id_modulo'] == $acesso['id_modulo']) {
                                 foreach ($permissoes as $permissao) {
                                     if ($_SESSION['nickname'] === $permissao['nickname'] && $permissao['id_acesso'] === $acesso['id_acesso']) {
-                                        echo "<a href='http://{$_SESSION['ip']}/{$acesso['link']}' class='btn btn-primary btn-block'>{$acesso['descricao_acesso']}</a>";
+                                        echo "<nav class='nav flex-column'>";
+                                        echo "<a class='nav-link active' href='http://{$_SESSION['ip']}/{$acesso['link']}'><i class='{$acesso['icones']}'></i> {$acesso['descricao_acesso']}</a>";
+                                    echo "</nav>";
+                              
+                                       
+                                       // echo "<a href='http://{$_SESSION['ip']}/{$acesso['link']}' class='btn btn-primary btn-block'>{$acesso['descricao_acesso']}</a>";
                                     };
                                 };
                             } else { };
                         };
-                        echo "</div>";
+                        echo "</div></div>";
                     } else { };
                     $anterior_modulo = $modulo['descricao_modulos'];
                 };
@@ -152,6 +151,4 @@ and open the template in the editor.
         </div>
     </div>
     <!-- MENU LATERAL -->
-</body>
 
-</html>

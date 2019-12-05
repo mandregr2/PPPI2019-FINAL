@@ -1,3 +1,8 @@
-id,id_modulo,descricao,link
-1,1,Inicial,inicial.php
-2,2,Configurações,configuracao.php
+id,id_modulo,descricao,link,icone
+1,1,Inicial,inicial.php,"fa fa-home"
+2,2,Configurações,configuracao.php,"fa fa-wrench"
+3,3,"Quadro de Horários",quadro.php,"fa fa-calendar-check-o"
+4,4,"Cadastro de Horários",horarios.php,"fa fa-calendar-check-o"
+5,5,"Cadastro de Professores",cadastroProfessor.php,"fa fa-graduation-cap"
+6,6,"Cadastro de Diciplinas"," cadastroDiciplina.php","fa fa-book"
+7,5,"Cadastro de Componente Curricular",cadastrocomponente.php,"fa fa-book"

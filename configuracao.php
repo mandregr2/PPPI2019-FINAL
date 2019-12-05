@@ -50,7 +50,7 @@ if (!isset($_POST['usuario'])) {
                     $cor_botao = "btn btn-light btn-block";
                 };
                 echo "<button type='submit'  value='{$nick}' class='{$cor_botao}' >
-                                {$usuario['nickname']}
+                <i class='fa fa-user-o fa-2x'></i></br> {$usuario['nickname']}
                               </button>";
                 echo "</form>";
                 echo "  </div>";
@@ -138,7 +138,6 @@ if (!isset($_POST['usuario'])) {
                     };
                 } else {
                     die("arquivo de configuracao não existe");
-
                 };
                 $maior_id = ($maior_id + 1);
 
@@ -196,7 +195,7 @@ if (!isset($_POST['usuario'])) {
                 ?>
                 <div>
 
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o "></i> Salvar</button>
             </form>
         </div>
     </div>
@@ -224,7 +223,7 @@ if (!isset($_POST['usuario'])) {
                 <input type="password" class="form-control" name="password">
             </div>
             <div class="form-group col-md-10">
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o "></i> Salvar</button>
             </div>
         </div>
     </form>
@@ -274,7 +273,7 @@ if (!isset($_POST['usuario'])) {
                 <input type="text" class="form-control" name="descricao_modulo" placeholder="Nome do Módulo">
             </div>
             <div class="form-group col-md-10">
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o "></i> Salvar</button>
             </div>
         </div>
 
@@ -322,19 +321,56 @@ if (!isset($_POST['usuario'])) {
                     ?>
                 </select>
             </div>
-
+        </div>
+        <div class="form-row">
             <div class="form-group col-md-10">
                 <label for="inputName">Nome da Pagina</label>
                 <input type="text" class="form-control" name="descricao" placeholder="Nome da Pagina Acess ex. Clientes">
             </div>
+        </div>
+        <div class="form-row">
             <div class="form-group col-md-10">
                 <label for="inputName">Nome do Formulario PHP</label>
                 <input type="text" class="form-control" name="link" placeholder="ex. cliente.php">
             </div>
+        </div>
+        <div class="form-row">
             <div class="form-group col-md-10">
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <label for="inputName">Icone</label>
             </div>
         </div>
+        <div class="form-row">
+            <div class="form-inline">
+                <input class='form-check-input' name='id_icone' value='fa fa-home' type='radio' checked>
+                <i class="fa fa-home fa-2x"></i>
+                <input class='form-check-input' name='id_icone' value='fa fa-sign-out' type='radio'>
+                <i class="fa fa-sign-out fa-2x"></i>
+                <input class='form-check-input' name='id_icone' value='fa fa-id-card' type='radio'>
+                <i class="fa fa-id-card fa-2x"></i>
+                <input class='form-check-input' name='id_icone' value='fa fa-calendar-check-o' type='radio'>
+                <i class="fa fa-calendar-check-o fa-2x"></i>
+                <input class='form-check-input' name='id_icone' value='fa fa-user' type='radio'>
+                <i class="fa fa-user fa-2x"></i>
+                <input class='form-check-input' name='id_icone' value='fa fa-graduation-cap' type='radio'>
+                <i class="fa fa-graduation-cap fa-2x"></i>
+                <input class='form-check-input' name='id_icone' value='fa fa-bars' type='radio'>
+                <i class="fa fa-bars fa-2x"></i>
+                <input class='form-check-input' name='id_icone' value='fa fa-wrench' type='radio'>
+                <i class="fa fa-wrench fa-2x"></i>
+                <input class='form-check-input' name='id_icone' value='fa fa-book' type='radio'>
+                <i class="fa fa-book fa-2x"></i>
+
+            </div>
+        </div>
+        </br>
+        <div class="form-row">
+            <div class="form-group col-md">
+
+                <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o "></i> Salvar</button>
+            </div>
+        </div>
+
+
     </form>
 </div>
 <!-- CADASTRO ACESSOS -->

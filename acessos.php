@@ -25,6 +25,7 @@ if (($arquivo = fopen("acessos.csv", "r")) !== false) {
             'id_modulo' => $linha[1],
             'descricao_acesso' =>  $linha[2],
             'link' => $linha[3],
+            'icones' =>$linha[4]
         ];
     };
 } else {
@@ -37,7 +38,8 @@ if (isset($_POST)) {
         'id_acessso' => $_POST['id_acesso'],
         'id_modulo' => $_POST['id_modulo'],
         'descricao_acesso' =>  $_POST['descricao'],
-        'link' => $_POST['link']
+        'link' => $_POST['link'],
+        'icones' => $_POST['id_icone']
     ];
 }
 
@@ -56,7 +58,7 @@ if (($arquivo = fopen("acessos.csv", "w")) !== false) {
                 break;
         }
     } else { };
-    $top = [id,id_modulo,descricao,link];
+    $top = ['id','id_modulo','descricao','link', 'icone'];
     fputcsv($arquivo, $top);
 
     foreach ($acessos as $acesso) {
