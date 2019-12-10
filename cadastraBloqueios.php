@@ -49,9 +49,7 @@ $Horarios[15] = "21:25 - 22:15";
 
 ?>
 <style>
-    body {
-        background-color:
-    }
+    
 
     .atletas {
         display: flex;
@@ -178,7 +176,7 @@ $Horarios[15] = "21:25 - 22:15";
                 echo "      
                            
                 <div class='{$class}'><h5>
-                <form action='{$link}' method='POST'>
+                <form action='http://{$_SESSION['ip']}/{$link}' method='POST'>
                    <input type='hidden' name='id' value='{$id}'>
                    <input type='hidden' name='idHora' value='{$i}'>
                     <button type ='submit' class='{$class}' >{$texto}</button>
@@ -221,7 +219,7 @@ $Horarios[15] = "21:25 - 22:15";
                 echo "      
                            
                 <div class='{$class}'><h5>
-                <form action='{$link}' method='POST'>
+                <form action='http://{$_SESSION['ip']}/{$link}' method='POST'>
                    <input type='hidden' name='id' value='{$id}'>
                    <input type='hidden' name='idHora' value='{$i}'>
                     <button type ='submit' class='{$class}' >{$texto}</button>
@@ -263,7 +261,7 @@ $Horarios[15] = "21:25 - 22:15";
                 echo "      
                            
                 <div class='{$class}'><h5>
-                <form action='{$link}' method='POST'>
+                <form action='http://{$_SESSION['ip']}/{$link}' method='POST'>
                    <input type='hidden' name='id' value='{$id}'>
                    <input type='hidden' name='idHora' value='{$i}'>
                     <button type ='submit' class='{$class}' >{$texto}</button>
@@ -304,7 +302,7 @@ $Horarios[15] = "21:25 - 22:15";
                 echo "      
                            
                 <div class='{$class}'><h5>
-                <form action='{$link}' method='POST'>
+                <form action='http://{$_SESSION['ip']}/{$link}' method='POST'>
                    <input type='hidden' name='id' value='{$id}'>
                    <input type='hidden' name='idHora' value='{$i}'>
                     <button type ='submit' class='{$class}' >{$texto}</button>
@@ -343,7 +341,7 @@ $Horarios[15] = "21:25 - 22:15";
                 echo "      
                            
                 <div class='{$class}'><h5>
-                <form action='{$link}' method='POST'>
+                <form action='http://{$_SESSION['ip']}/{$link}' method='POST'>
                    <input type='hidden' name='id' value='{$id}'>
                    <input type='hidden' name='idHora' value='{$i}'>
                     <button type ='submit' class='{$class}' >{$texto}</button>

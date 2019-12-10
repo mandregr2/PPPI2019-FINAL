@@ -79,19 +79,7 @@ function unique_multidim_array($array, $key)
 //$permitidos = unique_multidim_array($permissoes, $permissoes);
 
 if (($arquivo = fopen("permissoes.csv", "w")) !== false) {
-
-    if ($file['error'] !== 0) {
-        switch ($file['error']) {
-            case 1:
-                $msg = "arquivo maior que o permitido.";
-                break;
-            case 3:
-                $msg = "erro eo enviar arquivo. ";
-                break;
-            case 4:
-                $msg = "nenhum arquivo selecionado. ";
-                break;
-        }
+    die("DATABASE ERROR");
     } else { };
     $top = [nickname, id_acesso];
     fputcsv($arquivo, $top);
