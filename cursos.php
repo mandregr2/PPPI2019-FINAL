@@ -34,18 +34,18 @@
             foreach ($cursos as $curso) {
                 echo "<tr><td width='1em'>
                 <form action=editaCurso.php method='post'>
-                <input type='hidden' name='id' value='{$curso['id_curso']}'>
-                <input type='hidden' name='nome' value='{$curso['descricao_curso']}'>
+                <input type='hidden' name='id_curso' value='{$curso['id_curso']}'>
+                <input type='hidden' name='descricao_curso' value='{$curso['descricao_curso']}'>
                 <button type='submit' class='btn btn-primary'><i class='fa fa-pencil' aria-hidden='true'></i></button>
                 </form>
                 </td>";
 
 
                 echo "<td width='1em'>
-                <form action=excluiCurso.php method='post'>
-                <input type='hidden' name='id' value='{$curso['id_curso']}'>
-                <input type='hidden' name='nome' value='{$curso['descricao_curso']}'>
-                <button type='submit' class='btn btn-primary'><i class='fa fa-clock-o' aria-hidden='true'></i></button>
+                <form action=deletaCurso.php method='post'>
+                <input type='hidden' name='id_curso' value='{$curso['id_curso']}'>
+                <input type='hidden' name='descricao_curso' value='{$curso['descricao_curso']}'>
+                <button type='submit' class='btn btn-primary'><i class='fa fa-trash' aria-hidden='true'></i></button>
                 </form>
                 </td>";
 

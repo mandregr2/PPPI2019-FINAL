@@ -1,22 +1,30 @@
 <?php
+
 if (($arquivo = fopen("cursos.csv", "r")) !== false) {
     $cursos = [];
     $linha = fgetcsv($arquivo, 500, ',');
     while (($linha = fgetcsv($arquivo, 500, ',')) !== false) {
-        $cursos[] = [
-            'id_curso' => $linha[0],
-            'descricao_curso' => $linha[1]
-        ];
+        //pega somente o registro a editar e edita
+        if ($linha[0] == $_POST['id_curso']) {
+            $cursos[] = [
+                'id_curso' => $_POST['id_curso'],
+                'descricao_curso' => $_POST['descricao_curso']
+            ];
+            //caso nao seja o registro segue em frente
+        } else {
+            $cursos[] = [
+                'id_curso' => $linha[0],
+                'descricao_curso' => $linha[1]
+
+            ];
+        };
     };
 } else {
     die("arquivo de configuracao não existe");
 };
-$lastId = sizeof($cursos);
 
-$cursos[] = [
-    'id_curso' => $lastId + 1,
-    'descricao_curso' => $_POST['descricao_curso']
-    ];
+
+//reescreve o conteudo do csv
 
 
 if (($arquivo = fopen("cursos.csv", "w")) == false) {
@@ -31,15 +39,13 @@ if (($arquivo = fopen("cursos.csv", "w")) == false) {
     foreach ($cursos as $curso) {
 
         fputcsv($arquivo, $curso);
-
     };
 };
 
 
 
+
 fclose($arquivo);
-
-
 
 header('location: \cursos.php');
 ?>

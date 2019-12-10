@@ -11,13 +11,22 @@ if (($arquivo = fopen("cursos.csv", "r")) !== false) {
 } else {
     die("arquivo de configuracao não existe");
 };
-$lastId = sizeof($cursos);
 
-$cursos[] = [
-    'id_curso' => $lastId + 1,
-    'descricao_curso' => $_POST['descricao_curso']
-    ];
+$cursos2 = [];
 
+foreach ($cursos as $curso) {
+    if ($curso['id_curso'] !== $_POST['id_curso']) {
+       
+        $cursos2[] = [
+            'id_curso' => $curso['id_curso'],
+            'descricao_curso' => $curso['descricao_curso']
+        ];
+    
+    
+    } else { 
+      
+    };
+};
 
 if (($arquivo = fopen("cursos.csv", "w")) == false) {
     $_SESSION['mensagemBASE'] = "ERRO NA BASE DE DADOS !!";
@@ -28,9 +37,9 @@ if (($arquivo = fopen("cursos.csv", "w")) == false) {
     $top = ['id_curso','descricao_curso'];
     fputcsv($arquivo, $top);
 
-    foreach ($cursos as $curso) {
+    foreach ($cursos2 as $curso2) {
 
-        fputcsv($arquivo, $curso);
+        fputcsv($arquivo, $curso2);
 
     };
 };
