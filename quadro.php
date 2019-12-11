@@ -6,34 +6,36 @@ $disciplinas = array();
 for ($i = 1; $i <= 75; $i++) {
 
     $celulas[$i] = [
-        'id' => $i
+        'id' => 100 + $i
     ];
+    $disciplinas[$i] = [
+        'id'  => 75 + $i,
+        'nome' => "disciplina" . $i,
+        'idProfessor' => 1
+     ];
 }
 
 //Mario implementou daqui
-if (($arquivo = fopen("diciplinas.csv", "r")) !== false) {
-    $disciplinas = [];
-    $linha = fgetcsv($arquivo, 500, ',');
-    while (($linha = fgetcsv($arquivo, 500, ',')) !== false) {
-        $disciplinas[] = [
-            'id' => 75 + $linha[0],
-            'curso' => $linha[1],
-            'nome' => $linha[2],
-            'professor' => $linha[3],
-        ];
-    }
-} else {
-    die("arquivo de configuracao não existe");
-};
+// if (($arquivo = fopen("diciplinas.csv", "r")) !== false) {
+//     $disciplinas = [];
+//     $linha = fgetcsv($arquivo, 500, ',');
+//     while (($linha = fgetcsv($arquivo, 500, ',')) !== false) {
+//         $disciplinas[] = [
+//             'id' => 75 + $linha[0],
+//             'curso' => $linha[1],
+//             'nome' => $linha[2],
+//             'professor' => $linha[3],
+//         ];
+//     }
+// } else {
+//     die("arquivo de configuracao não existe");
+// };
 //até aqui
 
 
 //comentei o codigo
 
-//$disciplinas[$i] = [
-//    'id'  => 75 + $i,
-//    'nome' => "disciplina" . $i
-//];
+
 
 
 
@@ -43,13 +45,13 @@ if (($arquivo = fopen("diciplinas.csv", "r")) !== false) {
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-2 disciplinas-bloco">
             Disciplinas do curso
             <div class="container">
                 <div class="lista-disciplinas">
                     <?php
                     foreach ($disciplinas as $key => $value) { ?>
-                        <div class="disciplina" id="<?php echo $value['id']; ?>">
+                        <div class="disciplina" id="<?php echo $value['id']; ?>" idProfessor="<?php echo $value['idProfessor']; ?>">
                             <?php echo $value['nome']; ?>
                         </div>
                     <?php } ?>
@@ -138,7 +140,7 @@ if (($arquivo = fopen("diciplinas.csv", "r")) !== false) {
                         if ($key == 26 || $key == 51) {
                             for ($c = 0; $c < 5; $c++) { ?>
                                 <div class="celula">
-                                    <p>TO VAZIA </p>
+                                    <p>&nbsp;</p>
                                 </div>
                         <?php }
                             }
@@ -148,6 +150,9 @@ if (($arquivo = fopen("diciplinas.csv", "r")) !== false) {
                         </div>
                     <?php } ?>
                 </div>
+            </div>
+            <div class="col-sm-12">
+                <button class="btn btn-success" onClick="window.print()">Imprimir</button>
             </div>
         </div>
     </div>

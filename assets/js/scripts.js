@@ -24,13 +24,38 @@ $( function() {
         
         over: function(event, ui) {
             // se pode ser dropado
-            // if com ajax para o arquivo php que retorna isso.
-                // o php deve verificar se a posicao de destino
-                // esta em uma lista com todos os horarios bloqueados
-            if( $(ui.draggable).attr('id') % 2 == 0) {
-                $(event.target).addClass('allowed'); 
-            } else {
-                $(event.target).addClass('blocked'); 
+            var attr = $(this).attr('id');
+            if (typeof attr !== typeof undefined && attr !== false) {
+
+                if (typeof $(this).has('.disciplina')[0] == typeof undefined) {
+                    var data = {
+                        'p':$(ui.draggable).attr('idProfessor'),
+                        'h':$(event.target).attr('id'),
+                    };
+                    var url = "/verificaBloqueados.php";
+
+                    $.ajax({
+                        url : url,
+                        type: 'GET',
+                        dataType: "text",
+                        contentType: "text/plain; charset=utf-8",
+                        data : data,
+                        success: function(response) {
+                            // window.location.replace('/index.php')
+                            if (response == "true") {
+                                $(event.target).addClass('allowed'); 
+                            }
+                            else {
+                                $(event.target).addClass('blocked'); 
+                            }
+                        },
+                        error: function(e) {
+                            console.log(e);
+                        }
+                    });
+                } else {
+                    $(event.target).addClass('blocked'); 
+                }
             }
         },
         out: function (event, ui) {
@@ -44,10 +69,7 @@ $( function() {
         },
         drop: function( event, ui ) {
                 if ($(event.target).hasClass('allowed')) {
-                    /*
-                     - fazer mais um if pra ver se não ta fora de uma celula
-                     - adicionar sortable para mover mesmo os elementos na pagina
-                    */
+                    
 
                     // $( this )
                     // .find( "p" )

@@ -113,7 +113,15 @@ body {
     border: 1px solid rgb(66, 66, 66);
     padding: 14px 12px;
     cursor: grab;
-    margin-bottom: 10px
+    max-width: 100px;
+}
+@media print {
+    .disciplinas-bloco {
+        display: none;
+    }
+    .btn.btn-success{
+        display: none;
+    }
 }
 
 .topo {
