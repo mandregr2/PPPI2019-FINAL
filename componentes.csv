@@ -1,2 +1,2 @@
-Status,Nome,Codigo,Creditos,Periodo,Curso
-
+id_componente,descricao_componente,creditos,periodo,curso,id_professor
+1,Matematica,1,1,,

@@ -5,5 +5,5 @@ id,id_modulo,descricao,link,icone
 4,4,"Cadastro de Horários",horarios.php,"fa fa-calendar-check-o"
 5,5,Professores,professor.php,"fa fa-graduation-cap"
 6,6,"Cadastro de Diciplinas"," cadastroDiciplina.php","fa fa-book"
-7,5,"Cadastro de Componente Curricular",cadastrocomponente.php,"fa fa-book"
+7,5,"Componente Curricular",componentes.php,"fa fa-book"
 8,5,Cursos,cursos.php,"fa fa-book"

@@ -4,7 +4,7 @@ if (($arquivo = fopen("componentes.csv", "r")) !== false) {
     $linha = fgetcsv($arquivo, 500, ',');
     while (($linha = fgetcsv($arquivo, 500, ',')) !== false) {
         $componentes[] = [
-            'id_componete' => $linha[0],
+            'id_componente' => $linha[0],
             'descricao_componente' => $linha[1],
             'creditos' => $linha[2],
             'periodo' => $linha[3],
@@ -15,17 +15,24 @@ if (($arquivo = fopen("componentes.csv", "r")) !== false) {
 } else {
     die("arquivo de configuracao não existe");
 };
-$lastId = sizeof($componentes);
 
-$componentes[] = [
-            'id_componente' => $lastId +1 ,
-            'descricao_componente' => $_POST['descricao_componente'],
-            'creditos' => $_POST['creditos'],
-            'periodo' => $_POST['periodo'],
-            'id_curso' => $_POST['id_curso'],
-            'id_professor' => $_POST['id_professor'],
-    ];
+$componentes2 = [];
 
+foreach ($componentes as $componente) {
+    if ($componente['id_componente'] !== $_POST['id_componente']) {
+       
+        $componentes2[] = [
+            'id_componente' => $componente['id_componente'],
+            'descricao_componente' => $componente['descricao_componente'],
+            'creditos' => $componente['creditos'],
+            'periodo' => $componente['periodo'],
+            'id_curso' => $componente['id_curso'],
+            'id_professor' => $componente['id_professor']
+        ];
+    
+    
+    };
+};
 
 if (($arquivo = fopen("componentes.csv", "w")) == false) {
     $_SESSION['mensagemBASE'] = "ERRO NA BASE DE DADOS !!";
@@ -36,9 +43,9 @@ if (($arquivo = fopen("componentes.csv", "w")) == false) {
     $top = ['id_componente', 'descricao_componente','creditos','periodo','curso','id_professor'];
     fputcsv($arquivo, $top);
 
-    foreach ($componentes as $componente) {
+    foreach ($componentes2 as $componente2) {
 
-        fputcsv($arquivo, $componente);
+        fputcsv($arquivo, $componente2);
 
     };
 };
